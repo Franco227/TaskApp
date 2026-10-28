@@ -37,7 +37,7 @@ export function ManageableCategoryItem({ category, onDelete, onUpdate }: Props) 
             <input
               className="category-name-input"
               size={name.length}
-              maxLength={50}
+              maxLength={35}
               value={name}
               onChange={(event) => setName(event.target.value)}
               required

@@ -44,7 +44,7 @@ export function AddCategoryButton ({ onCreate }: Props) {
             <input
               type='text'
               value={name}
-              maxLength={50}
+              maxLength={35}
               onChange={(event) => setName(event.target.value)}
               required
               autoFocus

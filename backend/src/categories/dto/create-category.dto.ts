@@ -7,6 +7,6 @@ import {
 export class CreateCategoryDto {
   @IsString()
   @MinLength(1)
-  @MaxLength(50)
+  @MaxLength(35)
   name!: string;
 }
