@@ -27,7 +27,7 @@ const useTasks = (categories: Category[], categoryFilter: number | undefined) =>
     return tasks
       .filter((task) => categoryFilter === undefined || task.categoryId === categoryFilter)
       .filter((task) => task.title.toLowerCase().includes(searchFilter.trim().toLowerCase()))
-      .sort((a, b) => a.title.localeCompare(b.title));
+      .sort((a, b) => Number(a.done) - Number(b.done) || a.title.localeCompare(b.title));
   }, [tasks, categoryFilter, searchFilter]);
 
 
