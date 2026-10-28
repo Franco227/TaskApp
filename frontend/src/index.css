@@ -105,6 +105,16 @@ textarea {
   color: #888;
 }
 
+.task.done .task-description {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.task.done .task-category {
+  text-decoration: line-through;
+  color: #888;
+}
+
 .task-title {
   font-weight: 500;
 }
