@@ -25,9 +25,11 @@ export class TasksService {
   }
 
   async create(dto: CreateTaskDto) {
-    const category =  await this.prisma.category.findUnique({ where: { id: dto.categoryId } });
-    if (dto.categoryId && !category) {
-      throw new NotFoundException(`Category ${dto.categoryId} not found`);
+    if (dto.categoryId) {
+      const category =  await this.prisma.category.findUnique({ where: { id: dto.categoryId } });
+      if (!category) {
+        throw new NotFoundException(`Category ${dto.categoryId} not found`);
+      }
     }
     return this.prisma.task.create({ data: dto, include: { category: true } });
   }
