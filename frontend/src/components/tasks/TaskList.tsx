@@ -3,6 +3,7 @@ import { AddTaskButton } from './AddTaskButton';
 import { Category } from '../../types/category';
 import useTasks from '../../hooks/useTasks';
 import { SearchBar } from './SearchBar';
+import { ErrorMessage } from '../ErrorMessage';
 
 interface Props {
   categories: Category[];
@@ -11,6 +12,7 @@ interface Props {
 
 export function TaskList({ categories, categoryFilter }: Props) {
   const {
+    reloadTasks,
     filteredTasks,
     handleCreateTask,
     handleUpdateTask,
@@ -24,7 +26,7 @@ export function TaskList({ categories, categoryFilter }: Props) {
 
 
   if (loading) return <p>Loading…</p>;
-  if (error) return <p style={{ color: 'red' }}>Error: {error}</p>;
+  if (error) return <ErrorMessage error={error} onRetry={reloadTasks} />;
 
   return (
     <div>

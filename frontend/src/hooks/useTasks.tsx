@@ -10,6 +10,19 @@ const useTasks = (categories: Category[], categoryFilter: number | undefined) =>
   const [error, setError] = useState<string | null>(null);
   const [searchFilter, setSearchFilter] = useState<string>("");
 
+  const loadTasks = () => {
+    fetchTasks()
+      .then(setTasks)
+      .catch((e) => setError((e as Error).message))
+      .finally(() => setLoading(false));
+  };
+
+  const reloadTasks = () => {
+    setLoading(true);
+    setError(null);
+    loadTasks();
+  };
+
   const filteredTasks = useMemo(() => {
     return tasks
       .filter((task) => categoryFilter === undefined || task.categoryId === categoryFilter)
@@ -18,12 +31,7 @@ const useTasks = (categories: Category[], categoryFilter: number | undefined) =>
   }, [tasks, categoryFilter, searchFilter]);
 
 
-  useEffect(() => {
-    fetchTasks()
-      .then(setTasks)
-      .catch((e) => setError((e as Error).message))
-      .finally(() => setLoading(false));
-  }, [categories]);
+  useEffect(() => loadTasks(), [categories]);
 
 
   const handleCreateTask = async (title: string, description?: string, categoryId?: number) => {
@@ -64,6 +72,7 @@ const useTasks = (categories: Category[], categoryFilter: number | undefined) =>
 
 
   return {
+    reloadTasks,
     filteredTasks,
     handleCreateTask,
     handleUpdateTask,

@@ -2,9 +2,11 @@ import { CategoryList } from './components/categories/CategoryList';
 import { TaskList } from './components/tasks/TaskList';
 import { Toaster } from 'sonner';
 import useCategories from './hooks/useCategories';
+import { ErrorMessage } from './components/ErrorMessage';
 
 export default function App() {
   const {
+    loadCategories,
     categories,
     categoryFilter,
     updateCategoryFilter,
@@ -17,7 +19,7 @@ export default function App() {
 
 
   if (loading) return <p>Loading…</p>;
-  if (error) return <p style={{ color: 'red' }}>Error: {error}</p>;
+  if (error) return <ErrorMessage error={error} onRetry={loadCategories} />;
 
   return (
     <div className="container">

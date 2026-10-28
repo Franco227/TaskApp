@@ -9,20 +9,24 @@ const useCategories = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-
-  useEffect(() => {
+  const loadCategories = () => {
+    setLoading(true);
+    setError(null);
     fetchCategories()
-      .then((categoriesData) => {
-        sortCategories(categoriesData);
-        setCategories(categoriesData);
-      })
+      .then(sortCategories)
+      .then(setCategories)
       .catch((e) => setError((e as Error).message))
       .finally(() => setLoading(false));
-  }, []);
-
-  const sortCategories = (unsorted: Category[]) => {
-    unsorted.sort((a, b) => a.name.localeCompare(b.name));
   };
+
+  const sortCategories = (categoryList: Category[]) => {
+    categoryList.sort((a, b) => a.name.localeCompare(b.name));
+    return categoryList;
+  };
+
+
+  useEffect(() => loadCategories(), []);
+
 
   const handleCreateCategory = async (name: string) => {
     try {
@@ -69,6 +73,7 @@ const useCategories = () => {
 
 
   return {
+    loadCategories,
     categories,
     categoryFilter,
     updateCategoryFilter,
