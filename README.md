@@ -2,6 +2,9 @@
 
 A full-stack task and category manager built with NestJS and React. This project was originally completed as a technical assessment for a full-stack JS/NestJS/React developer position, and is shared here as a portfolio piece.
 
+<p align="center"><img src="docs/task_list.png" alt="TaskApp task list" width="600"></p>
+
+
 ## Context
 
 The brief provided a starter repo with a working `Task` entity (backend CRUD and a basic frontend list with delete) and asked to extend it with:
