@@ -136,6 +136,11 @@ textarea {
   margin-top: 0.25rem;
 }
 
+.task-category {
+  font-size: small;
+  color: #0077b6;
+}
+
 .button-add-task {
   width: 100%;
   margin-bottom: 10px;
