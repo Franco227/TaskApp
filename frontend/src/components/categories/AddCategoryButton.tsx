@@ -20,12 +20,12 @@ export function AddCategoryButton ({ onCreate }: Props) {
     event.preventDefault();
 
     if (name.trim() === "") {
-      toast.error("Vous devez entrer un nom !");
+      toast.error("You must enter a name!");
       return;
     }
 
     onCreate(name);
-    toast.success("Catégorie créée");
+    toast.success("Category created");
     resetFormAndCloseModal();
   }
 
@@ -37,10 +37,10 @@ export function AddCategoryButton ({ onCreate }: Props) {
         isOpen={isModalOpen}
         onRequestClose={resetFormAndCloseModal}
       >
-        <h3 className="modal-title">Ajouter une catégorie</h3>
+        <h3 className="modal-title">Add a category</h3>
         <form onSubmit={handleSubmit} onAbort={resetFormAndCloseModal}>
           <div className="input-container">
-            <label>Nom *</label>
+            <label>Name *</label>
             <input
               type='text'
               value={name}
@@ -51,12 +51,12 @@ export function AddCategoryButton ({ onCreate }: Props) {
             />
           </div>
           <div className="modal-buttons-section">
-            <button className="button-cancel" onClick={resetFormAndCloseModal}>Annuler</button>
-            <button type='submit' className="button-add">Ajouter</button>
+            <button className="button-cancel" onClick={resetFormAndCloseModal}>Cancel</button>
+            <button type='submit' className="button-add">Add</button>
           </div>
         </form>
       </Modal>
-      <button title="Ajouter une catégorie" onClick={() => setIsModalOpen(true)}>
+      <button title="Add a category" onClick={() => setIsModalOpen(true)}>
         <Plus />
       </button>
     </>

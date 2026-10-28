@@ -25,18 +25,18 @@ export function TaskItem({ task, categories, onUpdate, onDelete, toggleDone }: P
       <div className="buttons-section">
         <button
           onClick={() => toggleDone(task.id, !task.done)}
-          title={task.done ? "Marquer comme à faire" : "Marquer comme terminée"}
+          title={task.done ? "Mark as to do" : "Mark as done"}
         >
-          {task.done ? "À faire" : "Terminée"}
+          {task.done ? "To do" : "Done"}
         </button>
         <UpdateTaskButton task={task} categories={categories} onUpdate={onUpdate} />
         <DeleteElementModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} callback={() => onDelete(task.id)} />
         <button
           className="button-delete"
-          title="Supprimer la tâche"
+          title="Delete task"
           onClick={() => setIsModalOpen(true)}
         >
-          Supprimer
+          Delete
         </button>
       </div>
     </div>

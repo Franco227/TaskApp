@@ -9,7 +9,7 @@ export function SearchBar({ searchFilter, setSearchFilter }: Props) {
       className="search-bar"
       value={searchFilter}
       onChange={(event) => setSearchFilter(event.target.value)}
-      placeholder="🔍 Rechercher une tâche..."
+      placeholder="🔍 Search tasks..."
       maxLength={60}
     />
   </div>;

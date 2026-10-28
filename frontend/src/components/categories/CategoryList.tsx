@@ -16,10 +16,10 @@ export function CategoryList({ categories, categoryFilter, updateCategoryFilter,
 
   return (
     <div>
-      <h2>Catégories</h2>
+      <h2>Categories</h2>
       <div className="categories-section-container">
         <div className="categories-container">
-          {categories.length === 0 && <div>Aucune catégorie pour le moment.</div>}
+          {categories.length === 0 && <div>No categories yet.</div>}
           {categories.map((category) => (
             <CategoryItem
               key={category.id}

@@ -16,12 +16,12 @@ export default function App() {
   } = useCategories();
 
 
-  if (loading) return <p>Chargement…</p>;
-  if (error) return <p style={{ color: 'red' }}>Erreur : {error}</p>;
+  if (loading) return <p>Loading…</p>;
+  if (error) return <p style={{ color: 'red' }}>Error: {error}</p>;
 
   return (
     <div className="container">
-      <h1>Mes tâches</h1>
+      <h1>My tasks</h1>
       <CategoryList
         categories={categories}
         categoryFilter={categoryFilter}

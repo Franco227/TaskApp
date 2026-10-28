@@ -35,17 +35,17 @@ export function AddOrUpdateTaskModal ({ modalType, isModalOpen, setIsModalOpen, 
     event.preventDefault();
 
     if (title.trim() === "") {
-      toast.error("Vous devez entrer un titre !");
+      toast.error("You must enter a title!");
       return;
     }
 
     if (modalType === "add" && onCreate) {
       onCreate(title, description, categoryId);
-      toast.success("Tâche créée");
+      toast.success("Task created");
     }
     if (modalType === "edit" && taskId && onUpdate) {
       onUpdate(taskId, title, description, categoryId);
-      toast.success("Tâche modifiée");
+      toast.success("Task updated");
     }
     resetFormAndCloseModal();
   };
@@ -57,13 +57,13 @@ export function AddOrUpdateTaskModal ({ modalType, isModalOpen, setIsModalOpen, 
       isOpen={isModalOpen}
       onRequestClose={resetFormAndCloseModal}
     >
-      <h3 className="modal-title">{modalType === "add" ? "Ajouter une tâche" : "Modifier la tâche"}</h3>
+      <h3 className="modal-title">{modalType === "add" ? "Add a task" : "Edit task"}</h3>
       <form
         onSubmit={handleSubmit}
         onAbort={resetFormAndCloseModal}
       >
         <div className="input-container">
-          <label>Titre *</label>
+          <label>Title *</label>
           <input
             type='text'
             value={title}
@@ -81,18 +81,18 @@ export function AddOrUpdateTaskModal ({ modalType, isModalOpen, setIsModalOpen, 
           />
         </div>
         <div className="input-container">
-          <label>Catégorie</label>
+          <label>Category</label>
           <select
             value={categoryId ?? ""}
             onChange={(event) => setCategoryId(event.target.value === "" ? undefined : parseInt(event.target.value))}
           >
-            <option value={""}>Aucune</option>
+            <option value={""}>None</option>
             {categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
           </select>
         </div>
         <div className="modal-buttons-section">
-          <button className="button-cancel" onClick={resetFormAndCloseModal}>Annuler</button>
-          <button type='submit' className="button-add">{modalType === "add" ? "Ajouter" : "Modifier"}</button>
+          <button className="button-cancel" onClick={resetFormAndCloseModal}>Cancel</button>
+          <button type='submit' className="button-add">{modalType === "add" ? "Add" : "Save"}</button>
         </div>
       </form>
     </Modal>

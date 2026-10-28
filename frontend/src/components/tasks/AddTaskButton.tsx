@@ -21,7 +21,7 @@ export function AddTaskButton ({ onCreate, categories, defaultCategoryId }: Prop
         categories={categories}
         onCreate={onCreate}
       />
-      <button className="button-add-task" onClick={() => setIsModalOpen(true)}>Ajouter une tâche</button>
+      <button className="button-add-task" onClick={() => setIsModalOpen(true)}>Add a task</button>
     </>
   );
 }

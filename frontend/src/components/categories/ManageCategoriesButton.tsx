@@ -20,18 +20,18 @@ export function ManageCategoriesButton ({ categories, onDelete, onUpdate }: Prop
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
       >
-        <h3 className="modal-title">Gérer les catégories</h3>
+        <h3 className="modal-title">Manage categories</h3>
         <div className="manageable-categories-container">
-          {categories.length === 0 && <div>Aucune catégorie pour le moment.</div>}
+          {categories.length === 0 && <div>No categories yet.</div>}
           {categories.map((category) =>
             <ManageableCategoryItem key={category.id} category={category} onDelete={onDelete} onUpdate={onUpdate} />)}
         </div>
         <div className="modal-buttons-section">
-          <button onClick={() => setIsModalOpen(false)}>Terminé</button>
+          <button onClick={() => setIsModalOpen(false)}>Done</button>
         </div>
       </Modal>
       <button onClick={() => setIsModalOpen(true)}>
-        Gérer les catégories
+        Manage categories
       </button>
     </>
   );

@@ -10,7 +10,7 @@ export function CategoryItem({ category, categoryFilter, updateCategoryFilter }:
   return (
     <button
       className={`category ${category.id === categoryFilter ? "selected" : ""}`}
-      title="Filtrer les tâches"
+      title="Filter tasks"
       onClick={(_) => updateCategoryFilter(category.id)}
     >
       {category.name}

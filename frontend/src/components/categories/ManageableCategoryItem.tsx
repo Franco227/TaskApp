@@ -20,7 +20,7 @@ export function ManageableCategoryItem({ category, onDelete, onUpdate }: Props) 
       event.preventDefault();
 
     if (name.trim() === "") {
-      toast.error("Vous devez entrer un nom !");
+      toast.error("You must enter a name!");
       return;
     }
 

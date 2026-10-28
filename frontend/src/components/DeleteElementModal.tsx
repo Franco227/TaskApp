@@ -12,7 +12,7 @@ export function DeleteElementModal ({ isModalOpen, setIsModalOpen, callback }: P
 
     const handleConfirm = () => {
         callback();
-        toast.success("Élément supprimé avec succès !");
+        toast.success("Item deleted successfully!");
         setIsModalOpen(false);
     };
 
@@ -23,17 +23,17 @@ export function DeleteElementModal ({ isModalOpen, setIsModalOpen, callback }: P
       isOpen={isModalOpen}
       onRequestClose={() => setIsModalOpen(false)}
     >
-      <h3 className="modal-title">Supprimer l'élément</h3>
+      <h3 className="modal-title">Delete item</h3>
       <div className="delete-modal-content">
         <TriangleAlert size={50} color="orange" />
         <p>
-          Êtes-vous sûr de vouloir supprimer cet élément ?
-          La suppression est irréversible.
+          Are you sure you want to delete this item?
+          This cannot be undone.
         </p>
       </div>
       <div className="modal-buttons-section">
-        <button className="button-cancel" onClick={() => setIsModalOpen(false)}>Annuler</button>
-        <button type='submit' className="button-add" onClick={handleConfirm}>Confirmer</button>
+        <button className="button-cancel" onClick={() => setIsModalOpen(false)}>Cancel</button>
+        <button type='submit' className="button-add" onClick={handleConfirm}>Confirm</button>
       </div>
     </Modal>
   );
