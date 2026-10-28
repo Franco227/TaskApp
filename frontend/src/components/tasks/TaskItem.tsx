@@ -17,7 +17,7 @@ export function TaskItem({ task, categories, onUpdate, onDelete, toggleDone }: P
 
   return (
     <div className={`task${task.done ? ' done' : ''}`}>
-      <div>
+      <div className="task-content">
         <div className="task-title">{task.title}</div>
         {task.categoryId && <div className="task-category">{task.category?.name}</div>}
         {task.description && <div className="task-description">{task.description}</div>}
