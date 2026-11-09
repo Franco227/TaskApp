@@ -4,6 +4,11 @@ A full-stack task and category manager built with NestJS and React. This project
 
 <p align="center"><img src="docs/task_list.png" alt="TaskApp task list" width="600"></p>
 
+## Demo branch
+
+This is the `demo` branch, a frontend-only version of the app made for hosting as a live demo. The backend has been removed, and tasks and categories are stored in the browser's `localStorage`, so data stays on the visitor's device and is not shared.
+
+The full application, including the NestJS backend, is on the [`main` branch](https://github.com/Franco227/TaskApp/tree/main).
 
 ## Context
 
