@@ -1,11 +1,12 @@
 import type { Category } from '../types/category';
 import type { Task } from '../types/task';
+import { DEFAULT_CATEGORIES, DEFAULT_TASKS } from './defaults';
 
 const CATEGORIES_KEY = 'categories';
 const TASKS_KEY = 'tasks';
 
 export function readCategories(): Category[] {
-  return JSON.parse(localStorage.getItem(CATEGORIES_KEY) ?? '[]');
+  return JSON.parse(localStorage.getItem(CATEGORIES_KEY) ?? JSON.stringify(DEFAULT_CATEGORIES));
 }
 
 function writeCategories(categories: Category[]) {
@@ -21,7 +22,7 @@ export async function deleteCategory(categoryId: number): Promise<void> {
   if (!categories.some((category) => category.id === categoryId)) throw new Error('Could not delete category');
   writeCategories(categories.filter((category) => category.id !== categoryId));
 
-  const tasks: Omit<Task, 'category'>[] = JSON.parse(localStorage.getItem(TASKS_KEY) ?? '[]');
+  const tasks: Omit<Task, 'category'>[] = JSON.parse(localStorage.getItem(TASKS_KEY) ?? JSON.stringify(DEFAULT_TASKS));
   const updatedTasks = tasks.map((task) => task.categoryId === categoryId ? { ...task, categoryId: null } : task);
   localStorage.setItem(TASKS_KEY, JSON.stringify(updatedTasks));
 }

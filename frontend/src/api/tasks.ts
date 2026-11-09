@@ -1,13 +1,14 @@
 import type { Category } from '../types/category';
 import type { Task } from '../types/task';
 import { readCategories } from './categories';
+import { DEFAULT_TASKS } from './defaults';
 
 type StoredTask = Omit<Task, 'category'>;
 
 const TASKS_KEY = 'tasks';
 
 function readTasks(): StoredTask[] {
-  return JSON.parse(localStorage.getItem(TASKS_KEY) ?? '[]');
+  return JSON.parse(localStorage.getItem(TASKS_KEY) ?? JSON.stringify(DEFAULT_TASKS));
 }
 
 function writeTasks(tasks: StoredTask[]) {
