@@ -25,7 +25,9 @@ export function UpdateTaskButton ({ task, onUpdate, categories }: Props) {
         categories={categories}
         onUpdate={onUpdate}
       />
-      <button title="Edit task" onClick={() => setIsModalOpen(true)}><Pencil /></button>
+      <button title="Edit task" onClick={() => setIsModalOpen(true)}>
+        <Pencil size={22} />
+      </button>
     </>
   );
 }
