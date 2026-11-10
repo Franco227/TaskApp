@@ -25,6 +25,12 @@ h2 {
   margin-top: 0;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
 button {
   cursor: pointer;
@@ -201,6 +207,10 @@ textarea {
   align-items: center;
   gap: 30px;
   margin-inline: 20px;
+}
+
+.info-modal-content {
+  text-align: center;
 }
 
 

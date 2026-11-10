@@ -3,6 +3,7 @@ import { TaskList } from './components/tasks/TaskList';
 import { Toaster } from 'sonner';
 import useCategories from './hooks/useCategories';
 import { ErrorMessage } from './components/ErrorMessage';
+import { InfoButton } from './components/InfoButton';
 
 export default function App() {
   const {
@@ -23,7 +24,10 @@ export default function App() {
 
   return (
     <div className="container">
-      <h1>My tasks</h1>
+      <div className="header">
+        <h1>My tasks</h1>
+        <InfoButton />
+      </div>
       <CategoryList
         categories={categories}
         categoryFilter={categoryFilter}
